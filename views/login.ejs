@@ -1,0 +1,36 @@
+<!doctype html>
+ <html>
+ <head> <title>Login into your account</title>
+    <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-app.js"></script>
+    <!-- Add Firebase products that you want to use -->
+    <script  src="https://www.gstatic.com/firebasejs/6.1.0/firebase-auth.js"></script>
+    <script  src="https://www.gstatic.com/firebasejs/6.1.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-database.js"></script>
+</head>
+<body>
+<div class="container " >
+    <div class="col-sm-6 col-sm-offset-3 ">
+        <h1><span class="fa fa-sign-in"></span> Login</h1>
+                <!-- LOGIN FORM -->
+        <fieldset>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" id="txtemail" value="" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" id="txtpassword" value="" class="form- 
+           control">
+            </div>
+            <button type="submit" id="loginButton" onclick="signInUsers()"class="btn 
+            btn-warning"><a href="/login">Login</a>
+            </button>
+            <button type="submit" id="logoutButton" onclick="logout()"class="btn btn- 
+            warning">logout</button>
+        </fieldset>
+        <hr>
+     </div>
+    </div>
+    <script src="/js/firebase.js"></script>
+   </body>
+  </html>
