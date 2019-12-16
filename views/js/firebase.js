@@ -14,21 +14,22 @@
   // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 function signInUsers(){
-    var email = document.getElementById('txtemail').value;
-    var pass = document.getElementById('txtpassword').value;
+    var email = document.getElementById('txtemail').value
+    var pass = document.getElementById('txtpassword').value
     firebase.auth().signInWithEmailAndPassword(email, pass)
-        .then(function(data){
-            console.log(data)
-        })
+      .then(function(data){
+        console.log(data)
+      })
 
 
-       .catch(function(error) {
+      .catch(function(error) {
             // Handle Errors here.
-           let errorCode = error.code;
-           let errorMessage = error.MESSAGE;
-           console.log(errorCode);
-           console.log(errorMessage);
-        });
+        let errorCode = error.code;
+        let errorMessage = error.MESSAGE;
+        console.log(errorCode);
+        console.log(errorMessage);
+        })
+      
 }
 
 
@@ -40,14 +41,37 @@ function checkIfLogedIn(){
         var emailv =user.email;
 
 
-          console.log("User is signed in. with email: "+ emailv);
+        console.log("User is signed in. with email: "+ emailv);
       } else { // if the user is not logged in
-        console.log("No user is signed in.");
-
+          console.log("No user is signed in.");
       }
   });
 }
 
+
+/*
+          to tweak for forgot password
+var actionCodeSettings = {
+  url: 'https://www.example.com/?email=user@example.com',
+  iOS: {
+    bundleId: 'com.example.ios'
+  },
+  android: {
+    packageName: 'com.example.android',
+    installApp: true,
+    minimumVersion: '12'
+  },
+  handleCodeInApp: true
+};
+firebase.auth().sendPasswordResetEmail(
+    'user@example.com', actionCodeSettings)
+    .then(function() {
+      // Password reset email sent.
+    })
+    .catch(function(error) {
+      // Error occurred. Inspect error.code.
+    });
+    */
 window.onload=function(){
   checkIfLogedIn()
 }
