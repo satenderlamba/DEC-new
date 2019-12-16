@@ -180,10 +180,4 @@ body {
     max-width: inherit;
     margin: 2rem 0;
   }
-  .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0;
-  flex-grow: 1;
-}
 }
