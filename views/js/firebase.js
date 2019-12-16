@@ -17,6 +17,11 @@ function signInUsers(){
     var email = document.getElementById('txtemail').value;
     var pass = document.getElementById('txtpassword').value;
     firebase.auth().signInWithEmailAndPassword(email, pass)
+        .then(function(data){
+            console.log(data)
+        })
+
+
        .catch(function(error) {
             // Handle Errors here.
            let errorCode = error.code;
@@ -25,19 +30,20 @@ function signInUsers(){
            console.log(errorMessage);
         });
 }
+
+
 //check if user is logged in or not
 function checkIfLogedIn(){
   firebase.auth().onAuthStateChanged(function(user) {
       if (user) { // if the user is logged in
-          console.log(user)
-          var emailv =user.email;
+        console.log(user)
+        var emailv =user.email;
+
+
           console.log("User is signed in. with email: "+ emailv);
-          document.getElementById('loginButton').setAttribute('style','display: none;visibility: hidden;');
-          document.getElementById('logoutButton').setAttribute('style','display: inline-block;visibility: visible;')
       } else { // if the user is not logged in
-          console.log("No user is signed in.");
-          document.getElementById('loginButton').setAttribute('style','display: none; visibility: visible;');
-          document.getElementById('logoutButton').setAttribute('style','display: inline-block;visibility: hidden;')
+        console.log("No user is signed in.");
+
       }
   });
 }

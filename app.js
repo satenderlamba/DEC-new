@@ -25,6 +25,7 @@ admin.initializeApp({
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+
 //we also want to send css images and other static files in views folder
 //app.use(express.static('views'))
 app.use(express.static(path.join(__dirname, '/views/')));
@@ -46,7 +47,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-
 
 
 //handle sessions
@@ -72,24 +72,21 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-
-
-module.exports = app;
 */
 
 //create authentication middle ware
 function checkLoggedIn(request, resposense, next) {// if user is authenticated in the session, carry on
   if (request.isAuthenticated())
       return next();// if they aren't redirect them to the index page
-  resposense.redirect('/');
+  resposense.redirect('/tasks');
 }
 
 
 
 app.get('/login',function(request,response){
   response.render('login.ejs')
-})
-app.post('/login', function(request,response){
+});
+app.get('/tasks', function(request,response){
   response.render('tasks.ejs')
 });
 app.get('/logout', function(request,response){
